@@ -1,0 +1,9 @@
+/mean-frontend/node_modules/
+/mean-frontend/.angular/
+
+/.idea/.gitignore
+/.idea/.name
+/.idea/discord.xml
+/.idea/jsLibraryMappings.xml
+/.idea/mean.iml
+/.idea/modules.xml
