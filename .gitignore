@@ -7,3 +7,5 @@
 /.idea/jsLibraryMappings.xml
 /.idea/mean.iml
 /.idea/modules.xml
+/nodejs/node_modules/
+/nodejs/package-lock.json
