@@ -1,7 +1,7 @@
 import {connect} from 'mongoose';
 
 
-async function connection(): Promise<void>{
-    await connect('mongodb://localhost/dummy')
-    console.log('Database is up')
+export async function connection(){
+    connect('mongodb://localhost:27017/dummy', {user: 'dummy', pass:'test' })
+    console.log('Database is connected')
 }
