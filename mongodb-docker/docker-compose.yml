@@ -5,10 +5,17 @@ services:
 
   mongo:
     image: mongo
+    container_name: mongodb
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: alex
-      MONGO_INITDB_ROOT_PASSWORD: harvest
+      MONGO_INITDB_ROOT_USERNAME: dummy
+      MONGO_INITDB_ROOT_PASSWORD: test
+      MONGO_INITDB_DATABASE: dummy
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
 
   mongo-express:
     image: mongo-express
@@ -16,6 +23,6 @@ services:
     ports:
       - 8081:8081
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: alex
-      ME_CONFIG_MONGODB_ADMINPASSWORD: harvest
-      ME_CONFIG_MONGODB_URL: mongodb://alex:harvest@mongo:27017/
+      ME_CONFIG_MONGODB_ADMINUSERNAME: dummy
+      ME_CONFIG_MONGODB_ADMINPASSWORD: test
+      ME_CONFIG_MONGODB_URL: mongodb://dummy:test@mongo:27017/
