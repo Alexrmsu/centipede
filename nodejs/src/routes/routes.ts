@@ -1,11 +1,11 @@
 import {Router} from "express";
-import {getScrapers} from "../controllers/scraper";
-import {}
+import {getScraper} from "../controllers/scraper";
 const router: Router = Router();
 
 
 
-router.route('/available').get(getScrapers)
+router.route('/available')
+    .get(getScraper)
 
 
 
