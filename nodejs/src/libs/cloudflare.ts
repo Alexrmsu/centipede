@@ -1,8 +1,6 @@
-//bypass cloudflare protection
-import { Request, Response } from 'express';
-import * as cloudscraper from 'cloudscraper';
-import * as cloudflare from 'cloudflare-scrape';
+import cloudscraper from "cloudscraper";
 
-const cloudflareBypass = async (url:string) => {
-
+export async function cloudflare(url: string): Promise<string> {
+    return await cloudscraper(url);
 }
+
