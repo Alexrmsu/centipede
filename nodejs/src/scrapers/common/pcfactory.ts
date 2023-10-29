@@ -1,5 +1,6 @@
 import * as pupeteer from 'puppeteer';
 import * as fs from 'fs';
+import {AnyArray} from "mongoose";
 
 const url : string = 'https://www.pcfactory.cl';
 
@@ -14,7 +15,7 @@ async function getLinks (url: string) {
         const linksArray = Array.from(links);
         return linksArray.map(link => link.href);
     });
-    fs.writeFile('links.txt', Object.values(links).join('\n'), (err) => {
+    fs.writeFile('links.json', JSON.stringify(links), (err) => {
         if (err) throw err;
         console.log('Links saved!');
     });
@@ -23,5 +24,29 @@ async function getLinks (url: string) {
     return links;
 }
 
+async function getSmartphones (url: string) {
+    getLinks(url).then(links => console.log(links));
+    const readLinks = fs.readFileSync('links.json', 'utf8');
+    const links: any = readLinks.match(/(smartphone)/g);
 
-getLinks(url).then(links => console.log(links));
+
+    const browser = await pupeteer.launch();
+    const page = await browser.newPage();
+
+    for (let i = 0; i < links.length; i++) {
+        await page.goto(links[i]);
+        const smartphones = await page.evaluate(() => {
+            const smartphones = document.querySelectorAll('a');
+            const smartphonesArray = Array.from(smartphones);
+            return smartphonesArray.map(smartphone => smartphone.href);
+        });
+        fs.writeFile('smartphones.json', JSON.stringify(smartphones), (err) => {
+            if (err) throw err;
+            console.log('Smartphones saved!');
+        });
+    }
+}
+
+getSmartphones(url).then(smartphones => console.log(smartphones));
+
+
