@@ -27,7 +27,9 @@ async function getLinks (url: string) {
 async function getSmartphones (url: string) {
     getLinks(url).then(links => console.log(links));
     const readLinks = fs.readFileSync('links.json', 'utf8');
-    const links: any = readLinks.match(/(smartphone)/g);
+    // link only a one smartphone link related
+    const links = JSON.parse(readLinks).filter((link: string) => link.includes('smartphone'));
+    console.log(links)
 
 
     const browser = await pupeteer.launch();
