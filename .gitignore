@@ -10,3 +10,4 @@
 /nodejs/node_modules/
 /nodejs/package-lock.json
 /nodejs/dist/
+/mean-frontend/.vscode/
