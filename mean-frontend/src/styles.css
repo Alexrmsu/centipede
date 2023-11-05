@@ -5,5 +5,14 @@
 }
 html, body { height: 100%; }
 body { margin: 0;
-  background-color: #211919
+  background-color: #191B35
 }
+
+mat-toolbar{
+  background-color: #323259!important;
+  color: white!important;
+  height: 4em!important;
+  box-shadow: #0f0f38 2px 2px 20px!important;
+  font-weight: 500!important;
+}
+
