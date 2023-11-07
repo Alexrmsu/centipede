@@ -1,9 +1,56 @@
 
 <mat-toolbar>
-
-    <mat-icon>menu</mat-icon>
-
   <span class="text-uppercase">Scraping dev environment</span>
 </mat-toolbar>
+
+<script>(() => {
+  'use strict'
+  const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  tooltipTriggerList.forEach(tooltipTriggerEl => {
+    new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+})()
+</script>
+
+<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
+
+
+
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <span class="fs-5">Navigation</span>
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+
+        <li>
+          <a href="#" class="nav-link text-white">
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link text-white">
+            Scrapers
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link text-white">
+
+            Admin
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link text-white">
+            Documentation
+          </a>
+        </li>
+      </ul>
+      <hr>
+
+    </div>
+
+
+
+
+
 
 <router-outlet></router-outlet>
