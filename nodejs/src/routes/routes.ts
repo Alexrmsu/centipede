@@ -1,10 +1,17 @@
 import {Router} from "express";
-import {getScraper} from "../controllers/scraper";
+import {getScraper, getScraperById, testCreateFile} from "../controllers/scraper";
 const router: Router = Router();
 
 
-router.route('/available')
+router.route('/findAll')
     .get(getScraper)
 
+router.route('/execute/:id')
+    .get(getScraperById)
+
+router.route('/execute')
+
+router.route('/test')
+    .get(testCreateFile)
 
 export default router;
