@@ -1,56 +1,41 @@
-
-<mat-toolbar>
-  <span class="text-uppercase">Scraping dev environment</span>
-</mat-toolbar>
-
-<script>(() => {
-  'use strict'
-  const tooltipTriggerList = Array.from(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  tooltipTriggerList.forEach(tooltipTriggerEl => {
-    new bootstrap.Tooltip(tooltipTriggerEl)
-  })
-})()
-</script>
-
-<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
-
-
-
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <span class="fs-5">Navigation</span>
-      </a>
-      <hr>
-      <ul class="nav nav-pills flex-column mb-auto">
-
-        <li>
-          <a href="#" class="nav-link text-white">
-            Dashboard
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link text-white">
-            Scrapers
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link text-white">
-
-            Admin
-          </a>
-        </li>
-        <li>
-          <a href="#" class="nav-link text-white">
-            Documentation
-          </a>
-        </li>
-      </ul>
-      <hr>
-
-    </div>
-
-
-
-
-
-
-<router-outlet></router-outlet>
+<!-- make a precious sidenav using material ui design angular (mat-sidenav-container tags) -->
+<mat-sidenav-container>
+  <!-- make a sidenav using material ui design angular (mat-sidenav tags) -->
+  <mat-sidenav #sidenav mode="side" opened="true">
+    <!-- make a toolbar using material ui design angular (mat-toolbar tags) -->
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <!-- make a list using material ui design angular (mat-nav-list tags) -->
+    <mat-nav-list>
+      <!-- make a list item using material ui design angular (mat-list-item tags) -->
+      <mat-list-item>
+        <!-- make a link using material ui design angular (a tags) -->
+        <a matLine routerLink="/home" routerLinkActive="active-link">Home</a>
+      </mat-list-item>
+      <!-- make a list item using material ui design angular (mat-list-item tags) -->
+      <mat-list-item>
+        <!-- make a link using material ui design angular (a tags) -->
+        <a matLine routerLink="/about" routerLinkActive="active-link">About</a>
+      </mat-list-item>
+      <!-- make a list item using material ui design angular (mat-list-item tags) -->
+      <mat-list-item>
+        <!-- make a link using material ui design angular (a tags) -->
+        <a matLine routerLink="/contact" routerLinkActive="active-link">Contact</a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <!-- make a toolbar using material ui design angular (mat-toolbar tags) -->
+  <mat-toolbar color="primary">
+    <!-- make a button using material ui design angular (button tags) -->
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <!-- make a icon using material ui design angular (mat-icon tags) -->
+      <mat-icon>menu</mat-icon>
+    </button>
+    <!-- make a span using html (span tags) -->
+    <span>Angular Material Sidenav</span>
+  </mat-toolbar>
+  <!-- make a div using html (div tags) -->
+  <div class="content">
+    <!-- make a router outlet using angular (router-outlet tags) -->
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>
