@@ -10,10 +10,16 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatListModule} from "@angular/material/list";
+import {ScraperComponent} from "../scraper/scraper.component";
+import {DashboardComponent} from "../dashboard/dashboard.component";
+import {LoginComponent} from "../login/login.component";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ScraperComponent,
+    DashboardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
