@@ -1,41 +1,38 @@
 <!-- make a precious sidenav using material ui design angular (mat-sidenav-container tags) -->
-<mat-sidenav-container>
-  <!-- make a sidenav using material ui design angular (mat-sidenav tags) -->
-  <mat-sidenav #sidenav mode="side" opened="true">
-    <!-- make a toolbar using material ui design angular (mat-toolbar tags) -->
-    <mat-toolbar color="primary">Menu</mat-toolbar>
-    <!-- make a list using material ui design angular (mat-nav-list tags) -->
-    <mat-nav-list>
-      <!-- make a list item using material ui design angular (mat-list-item tags) -->
-      <mat-list-item>
-        <!-- make a link using material ui design angular (a tags) -->
-        <a matLine routerLink="/home" routerLinkActive="active-link">Home</a>
-      </mat-list-item>
-      <!-- make a list item using material ui design angular (mat-list-item tags) -->
-      <mat-list-item>
-        <!-- make a link using material ui design angular (a tags) -->
-        <a matLine routerLink="/about" routerLinkActive="active-link">About</a>
-      </mat-list-item>
-      <!-- make a list item using material ui design angular (mat-list-item tags) -->
-      <mat-list-item>
-        <!-- make a link using material ui design angular (a tags) -->
-        <a matLine routerLink="/contact" routerLinkActive="active-link">Contact</a>
-      </mat-list-item>
-    </mat-nav-list>
-  </mat-sidenav>
-  <!-- make a toolbar using material ui design angular (mat-toolbar tags) -->
-  <mat-toolbar color="primary">
-    <!-- make a button using material ui design angular (button tags) -->
+<mat-sidenav-container class="h-100">
+
+  <mat-sidenav class="w-100" #sidenav mode="over" opened="false">
+
     <button mat-icon-button (click)="sidenav.toggle()">
-      <!-- make a icon using material ui design angular (mat-icon tags) -->
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-nav-list>
+      <ul>
+        <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+        <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+        <li><a routerLink="/scrape" routerLinkActive="active">Scrape</a></li>
+      </ul>
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+
+
+
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <!-- make a span using html (span tags) -->
-    <span>Angular Material Sidenav</span>
+    <mat-icon>code</mat-icon><span>Pupeteer Scraper</span>
   </mat-toolbar>
-  <!-- make a div using html (div tags) -->
-  <div class="content">
-    <!-- make a router outlet using angular (router-outlet tags) -->
-    <router-outlet></router-outlet>
-  </div>
+
+
+
+
+
+
+  <p class="text-center text-white version-log">Version: Angular{{version}} - DEV{{versionPackage}}</p>
+
 </mat-sidenav-container>
+<router-outlet></router-outlet>
