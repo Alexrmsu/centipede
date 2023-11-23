@@ -1,7 +1,7 @@
-import {Request, Response} from 'express';
+import {json, Request, Response} from 'express';
 import Scraper from "../models/scraper";
 import {Document} from "mongoose";
-const fs = require('fs');
+import fs from 'fs';
 
 export async function getScraper(req: Request, res: Response) {
     const scraper = await Scraper.find();
@@ -66,6 +66,17 @@ export async function testCreateFile(req: Request, res: Response) {
             data: pathFile
         });
     }
+}
 
-
+export async function testExecuteScrapyScraper() {
+    const exec = require('child_process').exec;
+    exec('py src/scrapers/scrapy/pcfactory.py', (err: any, stdout: any, stderr: any) => {
+        if (err) {
+            console.error(`exec error: ${err}`);
+            return;
+        }
+        console.log(stdout);
+        console.log(stderr);
+        return json(stdout);
+    })
 }

@@ -1,5 +1,5 @@
 import {Router} from "express";
-import {createScraper, getScraper, getScraperById, testCreateFile} from "../controllers/scraper";
+import {createScraper, getScraper, getScraperById, testExecuteScrapyScraper} from "../controllers/scraper";
 const router: Router = Router();
 
 router.route('/findAll')
@@ -14,6 +14,6 @@ router.route('/create')
     .post(createScraper)
 
 router.route('/test')
-    .get(testCreateFile)
+    .get(testExecuteScrapyScraper)
 
 export default router;

@@ -1,6 +1,4 @@
-<!-- make a precious sidenav using material ui design angular (mat-sidenav-container tags) -->
 <mat-sidenav-container class="h-100">
-
   <mat-sidenav class="w-100" #sidenav mode="over" opened="false">
 
     <button mat-icon-button (click)="sidenav.toggle()">
@@ -11,14 +9,10 @@
         <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
         <li><a routerLink="/about" routerLinkActive="active">About</a></li>
         <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
-        <li><a routerLink="/scrape" routerLinkActive="active">Scrape</a></li>
+        <li><a routerLink="/scrapers" routerLinkActive="active">Scraper</a></li>
       </ul>
     </mat-nav-list>
-
   </mat-sidenav>
-
-
-
 
   <mat-toolbar color="primary">
     <button mat-icon-button (click)="sidenav.toggle()">
@@ -26,11 +20,6 @@
     </button>
     <mat-icon>code</mat-icon><span>Pupeteer Scraper</span>
   </mat-toolbar>
-
-
-
-
-
 
   <p class="text-center text-white version-log">Version: Angular{{version}} - DEV{{versionPackage}}</p>
 
