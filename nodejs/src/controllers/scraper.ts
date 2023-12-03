@@ -3,6 +3,7 @@ import Scraper from "../models/scraper";
 import {Document} from "mongoose";
 import fs from 'fs';
 
+
 export async function getScraper(req: Request, res: Response) {
     const scraper = await Scraper.find();
     return res.json(scraper);

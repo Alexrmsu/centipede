@@ -9,7 +9,6 @@ export class ScraperService {
 
   constructor(
     private http : HttpClient,
-
   ) {}
   url : string = 'localhost:3000/api/'
 
@@ -20,10 +19,11 @@ export class ScraperService {
   execute(id: string): Observable<Object> {
     return this.http.get<Object>(this.url + 'execute/' + id);
   }
-
+  /*
   createScraper(path: string, source: string, tech: string): Observable<Object> {
     return this.http.post<Object>(this.url + 'create', {path, source, tech});
   }
+  */
 
 
 
