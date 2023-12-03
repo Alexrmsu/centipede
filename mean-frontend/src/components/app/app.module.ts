@@ -14,6 +14,7 @@ import {ScraperComponent} from "../scraper/scraper.component";
 import {DashboardComponent} from "../dashboard/dashboard.component";
 import {LoginComponent} from "../login/login.component";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -22,18 +23,19 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
     DashboardComponent,
     LoginComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatButtonModule,
-        MatSidenavModule,
-        MatExpansionModule,
-        MatListModule,
-        MatButtonToggleModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatExpansionModule,
+    MatListModule,
+    MatButtonToggleModule,
+    MatTableModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
