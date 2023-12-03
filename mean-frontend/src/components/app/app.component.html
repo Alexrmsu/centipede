@@ -1,4 +1,4 @@
-<mat-sidenav-container class="h-100">
+<mat-sidenav-container >
   <mat-sidenav class="w-100" #sidenav mode="over" opened="false">
 
     <button mat-icon-button (click)="sidenav.toggle()">
@@ -18,10 +18,10 @@
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <mat-icon>code</mat-icon><span>Pupeteer Scraper</span>
+    <mat-icon>code</mat-icon><span>Puppeteer Scraper</span>
   </mat-toolbar>
 
-  <p class="text-center text-white version-log">Version: Angular{{version}} - DEV{{versionPackage}}</p>
+  <p class="text-center position-fixed   text-white version-log">Version: Angular{{version}} - DEV{{versionPackage}}</p>
 
 </mat-sidenav-container>
 <router-outlet></router-outlet>
