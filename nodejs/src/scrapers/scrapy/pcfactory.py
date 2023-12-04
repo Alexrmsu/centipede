@@ -1,9 +1,5 @@
 import numpy as np
-import scrapy
-import hashlib
+import pandas as pd
+import scrapy as sc
 
-if __name__ == '__main__':
-    state = False
-    state2 = True
-    state3 = False
-    print("%s %s %s" % (state,state2,state3))
+url = "https://www.pcfactory.cl"

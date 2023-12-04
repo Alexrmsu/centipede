@@ -1,14 +1,14 @@
-<mat-sidenav-container >
-  <mat-sidenav class="w-100" #sidenav mode="over" opened="false">
+<mat-sidenav-container class="h-100 w-100 position-absolute z-0">
 
+  <mat-sidenav class="w-100" #sidenav mode="over" opened="false">
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>close</mat-icon>
     </button>
     <mat-nav-list>
       <ul>
         <li><a routerLink="ui/dashboards" routerLinkActive="active">Home</a></li>
-        <li><a routerLink="/about" routerLinkActive="active">About</a></li>
-        <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+        <li><a routerLink="ui/about" routerLinkActive="active">About</a></li>
+        <li><a routerLink="ui/contact" routerLinkActive="active">Contact</a></li>
         <li><a routerLink="ui/scrapers" routerLinkActive="active">Scraper</a></li>
       </ul>
     </mat-nav-list>
