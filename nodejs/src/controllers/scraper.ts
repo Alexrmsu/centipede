@@ -16,7 +16,7 @@ export async function getScraperById(req: Request, res: Response) {
 
 export async function createScraper(req: Request, res: Response) {
     const {path, source, tech} = req.body;
-    const pathFile : string = path + '.ts';
+    const pathFile : string = path.match("puppeteer") ? path + '.ts' : path + '.py';
 
 
     if (fs.existsSync(pathFile)) {
@@ -45,8 +45,7 @@ export async function createScraper(req: Request, res: Response) {
 
 export async function testCreateFile(req: Request, res: Response) {
     const {path,source,tech} = {path: 'src/scrapers/puppeteer/pcfactory', source: 'test', tech: ['test']}
-    const pathFile = path + '.ts';
-
+    const pathFile : string = path.match("puppeteer") ? path + '.ts' : path + '.py';
     if (fs.existsSync(pathFile)) {
         return res.json({
             message: 'File already exists',
@@ -59,8 +58,6 @@ export async function testCreateFile(req: Request, res: Response) {
             if (err) throw err;
             if (!err) return console.log('File is created successfully.');
         });
-
-
         return res.json({
             message: 'File successfully created',
             status: 200,
