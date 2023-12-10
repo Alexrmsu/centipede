@@ -58,3 +58,7 @@ ul li a{
   color: antiquewhite;
 }
 
+.high-z-index{
+  z-index: 1000;
+}
+

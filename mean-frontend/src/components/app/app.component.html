@@ -1,27 +1,17 @@
-<mat-sidenav-container class="h-100 w-100 position-absolute z-0">
-
-  <mat-sidenav class="w-100" #sidenav mode="over" opened="false">
-    <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon>close</mat-icon>
-    </button>
-    <mat-nav-list>
-      <ul>
-        <li><a routerLink="ui/dashboards" routerLinkActive="active">Home</a></li>
-        <li><a routerLink="ui/about" routerLinkActive="active">About</a></li>
-        <li><a routerLink="ui/contact" routerLinkActive="active">Contact</a></li>
-        <li><a routerLink="ui/scrapers" routerLinkActive="active">Scraper</a></li>
-      </ul>
-    </mat-nav-list>
-  </mat-sidenav>
-
-  <mat-toolbar color="primary">
-    <button mat-icon-button (click)="sidenav.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <mat-icon>code</mat-icon><span>Puppeteer Scraper</span>
-  </mat-toolbar>
+<mat-toolbar color="primary">
+  <button mat-icon-button>
+    <mat-icon routerLink="/ui/profile">account_circle</mat-icon>
+  </button>
+  <span>Puppeteer Scraper</span>
+  <span class="spacer"></span>
+  <button routerLink="ui/dashboard" mat-icon-button>
+    <mat-icon>dashboard</mat-icon>
+  </button>
+  <button routerLink="ui/scrapers" mat-icon-button>
+    <mat-icon>code</mat-icon>
+  </button>
+</mat-toolbar>
 
   <p class="text-center position-fixed text-white version-log">Version: Angular{{version}} - DEV{{versionPackage}}</p>
 
-</mat-sidenav-container>
 <router-outlet></router-outlet>

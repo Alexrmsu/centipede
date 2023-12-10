@@ -10,5 +10,6 @@ export class AppComponent {
   title: string = 'mean-frontend';
   version: string = VERSION.full;
   public versionPackage = packageJson.version;
+    protected readonly navigator = navigator;
 }
 

@@ -1,5 +1,10 @@
 import {Router} from "express";
-import {createScraper, getScraper, getScraperById, testExecuteScrapyScraper} from "../controllers/scraper";
+import {
+    createScraper,
+    getScraper,
+    getScraperById,
+    testExecuteScrapyScraper
+} from "../controllers/scraper";
 const router: Router = Router();
 const cors = require('cors');
 
