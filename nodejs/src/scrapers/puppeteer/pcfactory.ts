@@ -2,15 +2,10 @@ import puppeteer from 'puppeteer';
 import fs from 'fs';
 import {Document} from "mongoose";
 import {Request, Response} from "express";
+import {getHTML} from "./libs/common";
 
+const url = 'https://www.pcfactory.cl';
 
-async function getHTML(url: string) : Promise<string> {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(url);
-    const html = await page.content();
-    await browser.close();
-    return html;
-}
-
-
+getHTML(url).then(html => {
+    console.log(html);
+});
