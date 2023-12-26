@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ScraperService } from 'src/services/scraper.service';
 
 @Component({
   selector: 'app-scraper',
@@ -7,8 +8,18 @@ import { Component } from '@angular/core';
 })
 export class ScraperComponent {
 
-  constructor() {
+  constructor(
+     private scraperService: ScraperService
+  ) {
 
+
+  }
+
+  getScrapers() {
+    this.scraperService.findAll().subscribe(
+      res => {
+        console.log(res);
+      })
   }
 
 }

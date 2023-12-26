@@ -4,7 +4,7 @@ import {Document} from "mongoose";
 import {Request, Response} from "express";
 import {getHTML} from "./libs/common";
 
-const url = 'https://www.pcfactory.cl';
+const url : string = 'https://www.pcfactory.cl';
 
 getHTML(url).then(html => {
     console.log(html);
