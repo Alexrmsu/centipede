@@ -4,7 +4,7 @@ import {Document} from "mongoose";
 import {Request, Response} from "express";
 
 export async function getHTML(url: string) : Promise<string> {
-    console.time('getting html document... from ' + url);
+    console.time('getting html document from... ' + url);
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(url);
