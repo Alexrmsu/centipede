@@ -9,3 +9,5 @@ const url : string = 'https://www.pcfactory.cl';
 getHTML(url).then(html => {
     console.log(html);
 });
+
+

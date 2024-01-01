@@ -6,7 +6,7 @@ const schema = new Schema({
     tech: []
 })
 
-interface IScraper extends Document{
+export interface Scraper extends Document{
     path: string;
     source: string;
     tech: string[];
