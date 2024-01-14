@@ -1,8 +1,8 @@
-/mean-frontend/node_modules/
-/mean-frontend/.angular/
-/mean-frontend/dist/
-/mean-frontend/e2e/
-/mean-frontend/package-lock.json
+/front-end/node_modules/
+/front-end/.angular/
+/front-end/dist/
+/front-end/e2e/
+/front-end/package-lock.json
 /.idea/.gitignore
 /.idea/.name
 /.idea/discord.xml
