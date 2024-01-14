@@ -1,8 +1,7 @@
 import puppeteer from 'puppeteer';
-import bodyParser from 'body-parser';
 
 const baseUrl = 'https://cartercountysheriff.us/inmates2.html';
-const sourceName = "Carter County Sheriff's Office";
+const sourceName = "CarterCountyTest";
 
 const getInmates = async () => {
     let inmates = [];
@@ -19,12 +18,18 @@ const getInmates = async () => {
     });
 
     let inmateName = await page.$x('//tr[@class="RowStyle"]//td[2]/span/text()');
+    for (let i = 0; i < inmateName.length; i++) {
+        let name  = await (await inmateName[i].getProperty('textContent')).jsonValue();
+        inmates.push({ name, sourceName });
+    }
+    inmates = inmates.map((inmate) => {
+        // @ts-ignore
+        inmate.name = inmate.name.trim();
+        return inmate;
+    })
 
 
-
-
-    // all inmateNames
-    console.log(inmateName);
+    console.log(inmates);
     await browser.close();
 };
 getInmates();
