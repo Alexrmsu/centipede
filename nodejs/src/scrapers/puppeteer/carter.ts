@@ -18,18 +18,35 @@ const getInmates = async () => {
     });
 
     let inmateName = await page.$x('//tr[@class="RowStyle"]//td[2]/span/text()');
+    let inmateSex = await page.$x('//tr[@class="RowStyle"]//td[3]/span/text()');
+    let inmateRace = await page.$x('//tr[@class="RowStyle"]//td[4]/span/text()');
+    let inmateDob = await page.$x('//tr[@class="RowStyle"]//td[5]/span/text()');
+    let inmateAddress = await page.$x('//tr[@class="RowStyle"]//td[6]/span/text()');
+    let inmateBookedDate = await page.$x('//tr[@class="RowStyle"]//td[7]/span/text()');
+    let inmateReleaseDate = await page.$x('//tr[@class="RowStyle"]//td[8]/span/text()');
+    let inmateCharges = await page.$x('//tr[@class="RowStyle"]/td[9]/table/tbody/text()');
+
+    inmateAddress = inmateAddress.length === inmateName.length ? inmateAddress : new Array(inmateName.length).fill('');
+
     for (let i = 0; i < inmateName.length; i++) {
-        let name  = await (await inmateName[i].getProperty('textContent')).jsonValue();
-        inmates.push({ name, sourceName });
+        const name : string  = await (await inmateName[i].getProperty('textContent')).jsonValue();
+        const sex : string  = await (await inmateSex[i].getProperty('textContent')).jsonValue();
+        const race : string = await (await inmateRace[i].getProperty('textContent')).jsonValue();
+        const dob : string = await (await inmateDob[i].getProperty('textContent')).jsonValue();
+        const bookedDate : string = await (await inmateBookedDate[i].getProperty('textContent')).jsonValue();
+        inmates.push({sourceName, name, sex , race, dob, bookedDate });
     }
     inmates = inmates.map((inmate) => {
-        // @ts-ignore
         inmate.name = inmate.name.trim();
+        inmate.sex = inmate.sex.trim();
+        inmate.race = inmate.race.trim();
         return inmate;
-    })
+    });
 
 
-    console.log(inmates);
+
+
+    console.log('COMPLETED');
     await browser.close();
 };
 getInmates();
