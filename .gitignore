@@ -13,3 +13,4 @@
 /nodejs/package-lock.json
 /nodejs/dist/
 /mean-frontend/.vscode/
+/nodejs/.env
