@@ -36,7 +36,7 @@ const getInmates = async () => {
         const bookedDate : string = await (await inmateBookedDate[i].getProperty('textContent')).jsonValue();
         inmates.push({sourceName, name, sex , race, dob, bookedDate });
     }
-    inmates = inmates.map((inmate) => {
+    inmates = await inmates.map((inmate) => {
         inmate.name = inmate.name.trim();
         inmate.sex = inmate.sex.trim();
         inmate.race = inmate.race.trim();
