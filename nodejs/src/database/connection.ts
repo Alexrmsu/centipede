@@ -1,10 +1,16 @@
-import {connect} from 'mongoose';
-import 'dotenv/config';
+import mysql from 'mysql';
 
-const {MONGO_URL, MONGO_USER, MONGO_PASSWORD} = process.env;
+export const connection = mysql.createConnection({
+    host: 'localhost',
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: 'scrapers'
+})
+
+connection.connect((err) => {
+    if(err) throw err;
+    console.log('Connected to MySQL database');
+});
 
 
-export async function connection(){
-    await connect( MONGO_URL, {user: MONGO_USER, pass: MONGO_PASSWORD})
-    console.log('Database connection established');
-}
+module.exports = connection;
