@@ -1,6 +1,6 @@
 {
   "name": "scrapers-backend",
-  "version": "1.5.2-DEV",
+  "version": "1.5.3-DEV",
   "description": "",
   "main": "index.js",
   "scripts": {
