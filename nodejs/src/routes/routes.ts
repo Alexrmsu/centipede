@@ -1,8 +1,6 @@
 import {Router} from "express";
 import {
     createScraper,
-    getScraper,
-    getScraperById,
     testExecuteScrapyScraper
 } from "../controllers/scraper";
 const router: Router = Router();
@@ -16,12 +14,6 @@ router.use(cors(
         optionsSuccessStatus: 200
     }
 ));
-
-router.route('/findAll')
-    .get(getScraper)
-
-router.route('/execute/:id')
-    .get(getScraperById)
 
 router.route('/execute')
 
