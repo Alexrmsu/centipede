@@ -4,7 +4,41 @@
     <button mat-raised-button class="m-3" color="primary">Create new scraper</button>
   </div>
 
+  <div class="col-11 mx-auto mt-5 shadow-lg">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 bg-dark ">
 
 
+    <ng-container matColumnDef="position">
+      <th class="text-white" mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+        No.
+      </th>
+      <td class="text-white" mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell class="text-white" *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+        Name
+      </th>
+      <td mat-cell class="text-white" *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell class="text-white" *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
+        Weight
+      </th>
+      <td mat-cell class="text-white" *matCellDef="let element"> {{element.weight}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell class="text-white" *matHeaderCellDef mat-sort-header sortActionDescription="Sort by symbol">
+        Symbol
+      </th>
+      <td class="text-white" mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </div>
 
 </div>

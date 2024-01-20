@@ -1,18 +1,7 @@
 import {json, Request, Response} from 'express';
-import Scraper from "../models/scraper";
 import {Document} from "mongoose";
 import fs from 'fs';
 
-
-export async function getScraper(req: Request, res: Response) {
-    const scraper = await Scraper.find();
-    return res.json(scraper);
-}
-
-export async function getScraperById(req: Request, res: Response) {
-    const scraper = await Scraper.findById(req.params.id);
-    return res.json(scraper);
-}
 
 export async function createScraper(req: Request, res: Response) {
     const {path, source, tech} = req.body;
@@ -35,9 +24,6 @@ export async function createScraper(req: Request, res: Response) {
                 data: pathFile
             });
         });
-        const newScraper  = new Scraper({path, source, tech});
-        await newScraper.save();
-
     }
 
 
@@ -78,4 +64,15 @@ export async function testExecuteScrapyScraper() {
         console.log(stderr);
         return json(stdout);
     })
+}
+
+
+export async function detectScrapersFiles(req: Request, res: Response) {
+    const path = 'src/scrapers/puppeteer';
+    const files = fs.readdirSync(path);
+    return res.json({
+        message: 'Files detected',
+        status: 200,
+        data: files
+    });
 }
