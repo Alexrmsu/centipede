@@ -6,11 +6,13 @@ import cors from 'cors';
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-app.use(cors(
-    {origin: 'http://localhost:4200', optionsSuccessStatus: 200, methods: ['GET', 'PUT', 'POST', 'DELETE']}
+app.use(cors({
+    origin: 'http://localhost:4200',
+    optionsSuccessStatus: 200,
+    methods: ['GET', 'PUT', 'POST', 'DELETE']}
 ));
 
-// other configurations
+// other server configurations
 app.set('port', process.env.PORT || 3000);
 
 // routes

@@ -7,7 +7,7 @@ const getInmates = async () => {
     let inmates = [];
 
     const browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         defaultViewport: null,
     });
 
@@ -23,12 +23,10 @@ const getInmates = async () => {
     let inmateDob = await page.$x('//tr[@class="RowStyle"]//td[5]/span/text()');
     let inmateAddress = await page.$x('//tr[@class="RowStyle"]//td[6]/span/text()');
     let inmateBookedDate = await page.$x('//tr[@class="RowStyle"]//td[7]/span/text()');
-    let inmateReleaseDate = await page.$x('//tr[@class="RowStyle"]//td[8]/span/text()');
-    let inmateCharges = await page.$x('//tr[@class="RowStyle"]/td[9]/table/tbody/text()');
 
     inmateAddress = inmateAddress.length === inmateName.length ? inmateAddress : new Array(inmateName.length).fill('');
 
-    for (let i = 0; i < inmateName.length; i++) {
+    for (let i : number = 0; i < inmateName.length; i++) {
         const name : string  = await (await inmateName[i].getProperty('textContent')).jsonValue();
         const sex : string  = await (await inmateSex[i].getProperty('textContent')).jsonValue();
         const race : string = await (await inmateRace[i].getProperty('textContent')).jsonValue();
@@ -43,9 +41,7 @@ const getInmates = async () => {
         return inmate;
     });
 
-
-
-
+    console.log(inmates);
     console.log('COMPLETED');
     await browser.close();
 };

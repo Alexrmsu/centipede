@@ -12,15 +12,15 @@ router.use(cors(
         origin: '*',
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
         optionsSuccessStatus: 200
-    }
+        }
 ));
 
-router.route('/execute')
+router.route('/execute');
 
 router.route('/create')
-    .post(createScraper)
+    .post(createScraper);
 
 router.route('/test')
-    .get(testExecuteScrapyScraper)
+    .get(testExecuteScrapyScraper);
 
 export default router;
