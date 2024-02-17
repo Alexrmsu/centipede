@@ -1,6 +1,6 @@
 {
   "name": "scrapers-backend",
-  "version": "1.5.4-DEV",
+  "version": "1.5.5-DEV",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,8 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.7",
     "puppeteer": "^21.4.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
     "ts-node": "^10.9.1",
     "typescript": "5.2.2"
   },

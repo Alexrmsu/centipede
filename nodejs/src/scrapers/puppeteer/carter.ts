@@ -4,6 +4,7 @@ const baseUrl = 'https://cartercountysheriff.us/inmates2.html';
 const sourceName = "CarterCountyTest";
 
 const getInmates = async () => {
+    console.time('Puppeteer Carter');
     let inmates = [];
 
     const browser = await puppeteer.launch({
@@ -44,5 +45,6 @@ const getInmates = async () => {
     console.log(inmates);
     console.log('COMPLETED');
     await browser.close();
+    console.timeEnd('Puppeteer Carter');
 };
 getInmates();
