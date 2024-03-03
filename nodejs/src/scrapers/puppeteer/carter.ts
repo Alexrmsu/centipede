@@ -1,13 +1,13 @@
-import puppeteer from 'puppeteer';
+import puppeteer, {Browser} from 'puppeteer';
 
-const baseUrl = 'https://cartercountysheriff.us/inmates2.html';
-const sourceName = "CarterCountyTest";
+const baseUrl : string = 'https://cartercountysheriff.us/inmates2.html';
+const sourceName : string = "CarterCountyTest";
 
-const getInmates = async () => {
+const getInmates = async () : Promise<void> => {
     console.time('Puppeteer Carter');
     let inmates = [];
 
-    const browser = await puppeteer.launch({
+    const browser : Browser = await puppeteer.launch({
         headless: false,
         defaultViewport: null,
     });
@@ -35,7 +35,7 @@ const getInmates = async () => {
         const bookedDate : string = await (await inmateBookedDate[i].getProperty('textContent')).jsonValue();
         inmates.push({sourceName, name, sex , race, dob, bookedDate });
     }
-    inmates = await inmates.map((inmate) => {
+    inmates = inmates.map((inmate) => {
         inmate.name = inmate.name.trim();
         inmate.sex = inmate.sex.trim();
         inmate.race = inmate.race.trim();
