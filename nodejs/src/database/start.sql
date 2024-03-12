@@ -1,5 +1,5 @@
 create schema if not exists scrapers;
-
+use scrapers;
 create table if not exists scraper(
     id serial primary key auto_increment,
     path varchar(255) not null,
@@ -18,11 +18,11 @@ create table if not exists workerStatus(
     update_at timestamp default current_timestamp on update current_timestamp
 );
 
-create table if not exists person
+create table if not exists context
 (
-    id      serial primary key auto_increment,
-    name    varchar(255) not null,
-    email   varchar(255),
-    phone   varchar(255),
-    address varchar(255)
-)
+    id             serial primary key auto_increment,
+    scraperId      int          not null,
+    context_values varchar(255) not null,
+    created_at     timestamp default current_timestamp,
+    status         int         not null
+);
