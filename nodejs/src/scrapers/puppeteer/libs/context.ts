@@ -18,7 +18,7 @@ export const getContexts = async (scraperId: number): Promise<Context[]> => {
 }
 
 export const updateContextValues = async (id: number, contextValues: string): Promise<Context> => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) : void => {
         connection.query('UPDATE context SET contextValues = ? WHERE id = ?', [contextValues, id], (err: Error, results : Context) : void => {
             if(err) reject(err);
             resolve(results);
