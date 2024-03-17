@@ -1,10 +1,23 @@
 import {json, Request, Response} from 'express';
-import {Document} from "mongoose";
 import fs from 'fs';
+import {connection} from '../database/connection';
+
+
+export async function getScrapers(req: Request, res: Response) {
+    const query = 'SELECT * FROM scraper';
+    connection.query(query, (err: Error, results) => {
+        if (err) throw err;
+        return res.json({
+            message: 'Scraper successfully retrieved',
+            status: 200,
+            data: results
+        });
+    });
+}
 
 
 export async function createScraper(req: Request, res: Response) {
-    const {path, source, tech} = req.body;
+    const {path, tech, source} = req.body;
     const pathFile : string = path.match("puppeteer") ? path + '.ts' : path + '.py';
 
 
@@ -24,6 +37,16 @@ export async function createScraper(req: Request, res: Response) {
                 data: pathFile
             });
         });
+        const query   = 'INSERT INTO scraper (path, tech, source) VALUES (?, ?, ?)';
+        connection.query(query, [path, tech, source], (err: Error, results) => {
+            if (err) throw err;
+            return res.json({
+                message: 'Scraper successfully created',
+                status: 200,
+                data: results
+            });
+        });
+
     }
 
 

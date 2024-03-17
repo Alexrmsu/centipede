@@ -15,7 +15,6 @@ router.use(cors(
         }
 ));
 
-router.route('/execute');
 
 router.route('/create')
     .post(createScraper);

@@ -21,7 +21,7 @@ create table if not exists workerStatus(
 create table if not exists context
 (
     id             serial primary key auto_increment,
-    scraperId      int          not null,
+    source         varchar(255) not null,
     context_values varchar(255) not null,
     created_at     timestamp default current_timestamp,
     status         int         not null

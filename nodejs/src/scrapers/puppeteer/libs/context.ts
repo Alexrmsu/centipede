@@ -2,12 +2,11 @@ import {connection} from "../../../database/connection";
 
 export interface Context {
     id: number;
-    scraperId: number;
+    source: string;
     contextValues: string;
     createdAt: string;
     status: string;
 }
-
 export const getContexts = async (scraperId: number): Promise<Context[]> => {
     return new Promise((resolve, reject) => {
         connection.query('SELECT * FROM context WHERE scraperId = ?', [scraperId], (err: Error, results : Context[]) : void => {
