@@ -18,4 +18,10 @@ export class ScraperService {
     return this.http.get<Scraper[]>(this.url + '/getScrapers');
   }
 
+  createScraper(scraper : Scraper ) : Observable<Scraper[]> {
+    return this.http.post<Scraper[]>(this.url + '/create', scraper);
+  }
+
+
+
 }

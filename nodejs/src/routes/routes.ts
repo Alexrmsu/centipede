@@ -16,7 +16,8 @@ router.use(cors(
         }
 ));
 
-router.route('/getScrapers').get(getScrapers);
+router.route('/getScrapers')
+    .get(getScrapers);
 
 router.route('/create')
     .post(createScraper);
