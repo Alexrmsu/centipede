@@ -8,14 +8,14 @@ import {Scraper} from "../interfaces/scraper";
   providedIn: 'root'
 })
 export class ScraperService {
+  url : string = API_URL;
 
   constructor(
     private http : HttpClient,
   ) {}
-  url : string = API_URL  + 'scraper/';
 
-
-
-
+  getScrapers() : Observable<Scraper[]> {
+    return this.http.get<Scraper[]>(this.url + '/getScrapers');
+  }
 
 }

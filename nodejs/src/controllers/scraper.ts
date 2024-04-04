@@ -3,8 +3,8 @@ import fs from 'fs';
 import {connection} from '../database/connection';
 
 
-export async function getScrapers(req: Request, res: Response) {
-    const query = 'SELECT * FROM scraper';
+export async function getScrapers(req: Request, res: Response) : Promise<void> {
+    const query  = 'SELECT * FROM scraper';
     connection.query(query, (err: Error, results) => {
         if (err) throw err;
         return res.json({
@@ -13,7 +13,6 @@ export async function getScrapers(req: Request, res: Response) {
             data: results
         });
     });
-    
 }
 
 

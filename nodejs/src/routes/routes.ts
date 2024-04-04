@@ -1,10 +1,11 @@
 import {Router} from "express";
 import {
     createScraper,
+    getScrapers,
     testExecuteScrapyScraper
 } from "../controllers/scraper";
 const router: Router = Router();
-const cors = require('cors');
+import cors from 'cors';
 
 router.use(cors(
     {
@@ -15,6 +16,12 @@ router.use(cors(
         }
 ));
 
+router.route('/getScrapers').get(getScrapers);
 
+router.route('/create')
+    .post(createScraper);
+
+router.route('/test')
+    .get(testExecuteScrapyScraper);
 
 export default router;
