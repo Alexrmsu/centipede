@@ -16,10 +16,5 @@ router.use(cors(
 ));
 
 
-router.route('/create')
-    .post(createScraper);
-
-router.route('/test')
-    .get(testExecuteScrapyScraper);
 
 export default router;

@@ -13,6 +13,7 @@ export async function getScrapers(req: Request, res: Response) {
             data: results
         });
     });
+    
 }
 
 
