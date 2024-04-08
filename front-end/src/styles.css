@@ -62,3 +62,20 @@ ul li a{
   z-index: 1000;
 }
 
+table{
+  background-color: #323259!important;
+  color: white!important;
+  text-transform: uppercase!important;
+}
+
+table th{
+  background-color: #191B35!important;
+  color: white!important;
+  text-transform: uppercase!important;
+}
+
+table td{
+  background-color: #323259!important;
+  color: white!important;
+}
+

@@ -3,6 +3,6 @@ export interface Scraper {
     path: string;
     source: string;
     tech: string;
-    dateCreated: Date;
-    dateUpdated: Date;
+    dateCreated: string;
+    dateUpdated: string;
 }

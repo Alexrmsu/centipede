@@ -1,4 +1,3 @@
-import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatSort, Sort } from '@angular/material/sort';
@@ -12,14 +11,10 @@ import { ScraperService } from 'src/services/scraper.service';
   styleUrls: ['./scraper.component.css']
 })
 export class ScraperComponent implements OnInit, AfterViewInit{
-  displayedColumns: string[] = ['id', 'path', 'source', 'tech', 'dateCreated', 'dateUpdated'];
+  displayedColumns: string[] = ['id', 'path', 'source', 'tech', 'dateUpdated', 'dateCreated'];
   dataSource = new MatTableDataSource<Scraper[]>;
   actualScraper : FormGroup | undefined;
   @ViewChild(MatSort) sort!: MatSort;
-
-
-
-
 
   constructor(
      private scraperService: ScraperService,
