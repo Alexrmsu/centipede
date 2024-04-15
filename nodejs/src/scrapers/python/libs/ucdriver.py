@@ -1,5 +1,18 @@
 import undetected_chromedriver as uc
+import os
 
-def get_driver():
-    driver = uc.Chrome(headless=False,use_subprocess=True)
+def get_driver(hdlss : bool=False):
+    driver = uc.Chrome(headless=hdlss,use_subprocess=True)
+    return driver
+
+def dynamic_dir():
+    return os.path.dirname(os.path.realpath(__file__))
+
+def hide_cpu(driver):
+    driver.execute_cdp_cmd('Emulation.setCPUThrottlingRate', {'rate': 4})
+    return driver
+
+
+def spoofing_driver(driver, user_agent):
+    driver.execute_cdp_cmd('Network.setUserAgentOverride', {"userAgent": user_agent})
     return driver
