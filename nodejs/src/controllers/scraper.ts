@@ -5,12 +5,10 @@ const mysqlConnection = require('../database/connection');
 
 export async function getScrapers(req: Request, res: Response) : Promise<void> {
     const query  = 'SELECT * FROM scraper';
-    mysqlConnection.query(query, (err: Error, results) => {
+    mysqlConnection.query(query, (err: Error, result) => {
         if (err) throw err;
-        return res.json({
-            message: 'Scraper successfully retrieved',
-            status: 200,
-            data: results
+        return res.status(200).json({
+            result
         });
     });
 }

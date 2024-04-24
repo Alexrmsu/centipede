@@ -28,7 +28,10 @@ export class ScraperComponent implements OnInit, AfterViewInit{
     this.dataSource.sort = this.sort;
   }
   getScrapers(): void {
-    this.scraperService.getScrapers().subscribe(scrapers => this.dataSource.data = scrapers)
+    this.scraperService.getScrapers().subscribe((data: Scraper[]) => {
+      this.dataSource.data = data;
+    });
+
   }
 
 
