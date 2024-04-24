@@ -12,7 +12,7 @@ import { ScraperService } from 'src/services/scraper.service';
 })
 export class ScraperComponent implements OnInit, AfterViewInit{
   displayedColumns: string[] = ['id', 'path', 'source', 'tech', 'dateUpdated', 'dateCreated'];
-  dataSource = new MatTableDataSource<Scraper[]>;
+  dataSource = new MatTableDataSource<Scraper>;
   actualScraper : FormGroup | undefined;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -21,11 +21,14 @@ export class ScraperComponent implements OnInit, AfterViewInit{
   ) {}
 
   ngOnInit() : void  {
-    this.scraperService.getScrapers();
+    this.getScrapers();
   }
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
+  }
+  getScrapers(): void {
+    this.scraperService.getScrapers().subscribe(scrapers => this.dataSource.data = scrapers)
   }
 
 

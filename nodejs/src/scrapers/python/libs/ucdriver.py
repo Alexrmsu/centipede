@@ -1,8 +1,8 @@
 import undetected_chromedriver as uc
 import os
 
-def get_driver(hdlss : bool=False):
-    driver = uc.Chrome(headless=hdlss,use_subprocess=True)
+def get_driver(hdl : bool=False):
+    driver = uc.Chrome(headless=hdl,use_subprocess=True)
     return driver
 
 def dynamic_dir():
