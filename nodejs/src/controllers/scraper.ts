@@ -1,11 +1,11 @@
 import {json, Request, Response} from 'express';
 import fs from 'fs';
-import {connection} from '../database/connection';
+const mysqlConnection = require('../database/connection');
 
 
 export async function getScrapers(req: Request, res: Response) : Promise<void> {
     const query  = 'SELECT * FROM scraper';
-    connection.query(query, (err: Error, results) => {
+    mysqlConnection.query(query, (err: Error, results) => {
         if (err) throw err;
         return res.json({
             message: 'Scraper successfully retrieved',
@@ -38,7 +38,7 @@ export async function createScraper(req: Request, res: Response) {
             });
         });
         const query   = 'INSERT INTO scraper (path, tech, source) VALUES (?, ?, ?)';
-        connection.query(query, [path, tech, source], (err: Error, results) => {
+        mysqlConnection.query(query, [path, tech, source], (err: Error, results) => {
             if (err) throw err;
             return res.json({
                 message: 'Scraper successfully created',
