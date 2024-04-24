@@ -62,20 +62,30 @@ ul li a{
   z-index: 1000;
 }
 
-table{
+table {
   background-color: #323259!important;
   color: white!important;
   text-transform: uppercase!important;
+  box-shadow: 3px 13px 120px 2px black!important;
 }
 
 table th{
   background-color: #191B35!important;
   color: white!important;
   text-transform: uppercase!important;
+  font-family: "Raleway", sans-serif!important;
+  font-size: 1.3em!important;
 }
 
 table td{
   background-color: #323259!important;
+  color: white!important;
+  font-family: "Raleway", sans-serif!important;
+  font-size: 1.15em!important;
+}
+
+table td:hover{
+  background-color: #191B35!important;
   color: white!important;
 }
 
