@@ -28,8 +28,9 @@ export class ScraperComponent implements OnInit, AfterViewInit{
     this.dataSource.sort = this.sort;
   }
   getScrapers(): void {
-    this.scraperService.getScrapers().subscribe((data: Scraper[]) => {
-      this.dataSource.data = data;
+    this.scraperService.getScrapers().subscribe((res): void => {
+      this.dataSource = new MatTableDataSource<Scraper>(res);
+      console.log(res)
     });
 
   }
