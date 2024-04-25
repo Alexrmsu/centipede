@@ -5,41 +5,41 @@
   </div>
 
   <div class="col-11 mx-auto mt-5 shadow-lg">
- <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">'
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">'
 
-  <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column }} </th>
-    <td mat-cell *matCellDef="let x"> {{ x[column] }} </td>
-  </ng-container>
+      <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column }} </th>
+        <td mat-cell *matCellDef="let x"> {{ x[column] }} </td>
+      </ng-container>
 
-  <ng-container matColumnDef="expand">
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let x">
-      <button mat-icon-button aria-label="expand row" (click)="toggleExpansion(x); $event.stopPropagation()">
-        <mat-icon *ngIf="expandedElement !== x">keyboard_arrow_down</mat-icon>
-        <mat-icon *ngIf="expandedElement === x">keyboard_arrow_up</mat-icon>
-      </button>
-    </td>
-  </ng-container>
+      <ng-container matColumnDef="expand">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let x">
+          <button mat-icon-button aria-label="expand row" (click)="toggleExpansion(x); $event.stopPropagation()">
+            <mat-icon *ngIf="expandedElement !== x">keyboard_arrow_down</mat-icon>
+            <mat-icon *ngIf="expandedElement === x">keyboard_arrow_up</mat-icon>
+          </button>
+        </td>
+      </ng-container>
 
-  <ng-container matColumnDef="expandedDetail">
-    <td mat-cell *matCellDef="let x" [attr.colspan]="displayedColumns.length + 1">
-      <div class="scraper-element-detail" [@detailExpand]="expandedElement === x ? 'expanded' : 'collapsed'">
-        <div> data: {{ x.source }} {{x.id}}</div>
-      </div>
-    </td>
-  </ng-container>
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let x" [attr.colspan]="displayedColumns.length + 1">
+          <div class="scraper-element-detail" [@detailExpand]="expandedElement === x ? 'expanded' : 'collapsed'">
+            <div> data: {{ x.source }} {{x.id}}</div>
+          </div>
+        </td>
+      </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
 
-  <tr mat-row *matRowDef="let x; columns: displayedColumns;"
-      class="scraper-element-row"
-      [class.scraper-expanded-row]="expandedElement === x"
-      (click)="toggleExpansion(x)">
-  </tr>
+      <tr mat-row *matRowDef="let x; columns: displayedColumns;"
+          class="scraper-element-row"
+          [class.scraper-expanded-row]="expandedElement === x"
+          (click)="toggleExpansion(x)">
+      </tr>
 
-  <tr mat-row *matRowDef="let x; columns: ['expandedDetail']" class="scraper-detail-row"></tr>
-</table>
+      <tr mat-row *matRowDef="let x; columns: ['expandedDetail']" class="scraper-detail-row"></tr>
+    </table>
   </div>
 
 </div>
