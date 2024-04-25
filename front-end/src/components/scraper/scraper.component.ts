@@ -21,8 +21,8 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   ],
 })
 export class ScraperComponent implements OnInit, AfterViewInit{
-  displayedColumns: string[] = ['id', 'path', 'source', 'tech', 'dateUpdated', 'dateCreated'];
-  displayedColumnsExpand = ['id', 'path', 'source', 'tech', 'dateUpdated', 'dateCreated'];
+  displayedColumns: string[] = ['id', 'path', 'source', 'tech', 'created_at', 'updated_at'];
+  displayedColumnsExpand = ['id', 'path', 'source', 'tech', 'created_at', 'updated_at'];
   dataSource = new MatTableDataSource<Scraper>;
   expandedElement: Scraper | null | undefined;
   actualScraper : FormGroup | undefined;
