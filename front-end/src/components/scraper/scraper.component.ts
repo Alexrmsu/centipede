@@ -4,6 +4,7 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Scraper } from 'src/interfaces/scraper';
 import { ScraperService } from 'src/services/scraper.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-scraper',
@@ -27,11 +28,30 @@ export class ScraperComponent implements OnInit, AfterViewInit{
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
   }
-  getScrapers(): void {
-    this.scraperService.getScrapers().subscribe((res): void => {
-      this.dataSource = new MatTableDataSource<Scraper>(res);
-      console.log(res)
-    });
+  async getScrapers(): Promise<void>{
+    try{
+      const scrapers = await this.scraperService.getScrapers().toPromise();
+      this.dataSource = new MatTableDataSource<Scraper>(scrapers);
+      console.log(scrapers);
+      if (scrapers!.length !== 0){
+       Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Scrapers loaded successfully",
+          showConfirmButton: false,
+          timer: 1500,
+         width: 350,
+         heightAuto: true,
+         timerProgressBar: true,
+         backdrop: false,
+        });
+      }
+    }
+    catch(err){
+      console.error(err);
+      Swal.fire('Error', 'An error has occurred', 'error');
+    }
+
 
   }
 
