@@ -89,3 +89,46 @@ table td:hover{
   color: white!important;
 }
 
+tr.scraper-detail-row {
+  height: 0!important;
+}
+
+tr.scraper-element-row:not(.scraper-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.scraper-element-row:not(.scraper-expanded-row):active {
+  background: #efefef;
+}
+
+.scraper-element-row td {
+  border-bottom-width: 0!important;
+}
+
+.scraper-element-detail {
+  overflow: hidden!important;
+  display: flex!important;
+}
+
+.scraper-element-diagram {
+  min-width: 80px!important;
+  border: 2px solid black!important;
+  padding: 8px!important;
+  font-weight: lighter!important;
+  margin: 8px 0!important;
+  height: 104px!important;
+}
+
+.scraper-element-symbol {
+  font-weight: bold!important;
+  font-size: 40px!important;
+  line-height: normal!important;
+}
+
+.scraper-element-description {
+  padding: 16px!important;
+}
+
+.scraper-element-description-attribution {
+  opacity: 0.5!important;
+}
