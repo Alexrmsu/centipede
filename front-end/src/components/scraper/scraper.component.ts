@@ -16,7 +16,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
     height: '0px',
     minHeight: '0',
     display: 'none'
-  })), state('expanded', style({height: '*'})), transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),]),],
+  })), state('expanded', style({height: '*'})), transition('expanded <=> collapsed', animate('365ms cubic-bezier(0.4, 0.0, 0.2, 1)')),]),],
 })
 export class ScraperComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['source', 'path', 'tech', 'created_at', 'updated_at'];
@@ -29,7 +29,7 @@ export class ScraperComponent implements OnInit, AfterViewInit {
   constructor(private scraperService: ScraperService,) {
   }
 
-  toggleExpansion(row: any): void {
+  toggleExpansion(row:undefined): void {
     this.expandedElement = this.expandedElement === row ? null : row;
   }
 
@@ -61,7 +61,7 @@ export class ScraperComponent implements OnInit, AfterViewInit {
       }
     } catch (err) {
       console.error(err);
-      Swal.fire('Error', 'An error has occurred', 'error');
+      Swal.fire('Error', 'An error has occurred while trying the retrieve the scrapers available', 'error');
     }
 
 

@@ -45,7 +45,6 @@ export async function createScraper(req: Request, res: Response) {
 
     }
 
-
 }
 
 export async function testCreateFile(req: Request, res: Response) {
@@ -71,27 +70,3 @@ export async function testCreateFile(req: Request, res: Response) {
     }
 }
 
-
-export async function testExecuteScrapyScraper() {
-    const exec = require('child_process').exec;
-    exec('py src/scrapers/scrapy/pcfactory.py', (err: any, stdout: any, stderr: any) => {
-        if (err) {
-            console.error(`exec error: ${err}`);
-            return;
-        }
-        console.log(stdout);
-        console.log(stderr);
-        return json(stdout);
-    })
-}
-
-
-export async function detectScrapersFiles(req: Request, res: Response) {
-    const path = 'src/scrapers/puppeteer';
-    const files = fs.readdirSync(path);
-    return res.json({
-        message: 'Files detected',
-        status: 200,
-        data: files
-    });
-}
