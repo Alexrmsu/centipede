@@ -1,8 +1,7 @@
 import {Router} from "express";
 import {
     createScraper,
-    getScrapers,
-    testExecuteScrapyScraper
+    getScrapers
 } from "../controllers/scraper";
 const router: Router = Router();
 import cors from 'cors';
@@ -21,8 +20,5 @@ router.route('/getScrapers')
 
 router.route('/create')
     .post(createScraper);
-
-router.route('/test')
-    .get(testExecuteScrapyScraper);
 
 export default router;

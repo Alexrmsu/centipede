@@ -9,9 +9,18 @@ html, body {
   height: 100%;
 }
 
+
 body {
   margin: 0;
   background-color: #191B35
+}
+
+p {
+  font-size: 1.2em;
+}
+
+.nebula-color {
+  background-color: #323259!important;
 }
 
 .version-log {
