@@ -9,12 +9,7 @@
 
       <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> {{ column }} </th>
-        <td mat-cell *matCellDef="let x"> {{ x[column] }} </td>\
-        <ng-template ngIf="column === 'tech' && x[column] === 'puppeteer'">
-          <mat-chip-option selected color="accent">
-            puppeteer
-          </mat-chip-option>
-        </ng-template>
+        <td mat-cell *matCellDef="let x"> {{ x[column] }} </td>
       </ng-container>
 
       <ng-container matColumnDef="expand">
@@ -30,7 +25,12 @@
       <ng-container matColumnDef="expandedDetail">
         <td mat-cell *matCellDef="let x" [attr.colspan]="displayedColumns.length + 1">
           <div class="scraper-element-detail" [@detailExpand]="expandedElement === x ? 'expanded' : 'collapsed'">
-            <div class="p-4"> data: {{ x.source }} {{x.id}}</div>
+            <div class="p-4">
+              <mat-chip class="bg-warning text-uppercase" *ngIf="x.tech === 'puppeteer'">
+                <mat-icon matChipAvatar>code</mat-icon>
+                <span>Javascript</span>
+              </mat-chip>
+            </div>
           </div>
         </td>
       </ng-container>

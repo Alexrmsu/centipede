@@ -16,6 +16,7 @@ import {LoginComponent} from "../login/login.component";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatTableModule} from "@angular/material/table";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatChipsModule} from "@angular/material/chips";
 
 @NgModule({
   declarations: [
@@ -24,21 +25,22 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DashboardComponent,
     LoginComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatExpansionModule,
-    MatListModule,
-    MatButtonToggleModule,
-    MatTableModule,
-    NgbModule,
-    HttpClientModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatExpansionModule,
+        MatListModule,
+        MatButtonToggleModule,
+        MatTableModule,
+        NgbModule,
+        HttpClientModule,
+        MatChipsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
