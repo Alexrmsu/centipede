@@ -17,7 +17,6 @@ const getInmates = async () : Promise<void> => {
     await page.goto(baseUrl, {
         waitUntil: "domcontentloaded",
     });
-
     let inmateName = await page.$x('//tr[@class="RowStyle"]//td[2]/span/text()');
     let inmateSex = await page.$x('//tr[@class="RowStyle"]//td[3]/span/text()');
     let inmateRace = await page.$x('//tr[@class="RowStyle"]//td[4]/span/text()');
