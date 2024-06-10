@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ScraperDetailsComponent } from './scraper-details.component';
+import {ScraperDetailsComponent} from './scraper-details.component';
 
 describe('ScraperDetailsComponent', () => {
   let component: ScraperDetailsComponent;
@@ -8,9 +8,9 @@ describe('ScraperDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ScraperDetailsComponent ]
+      declarations: [ScraperDetailsComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ScraperDetailsComponent);
     component = fixture.componentInstance;
