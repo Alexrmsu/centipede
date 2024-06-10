@@ -1,7 +1,9 @@
 import { Request, Response} from 'express';
-import fs from 'fs';
-const mysqlConnection = require('../database/connection');
 import util from 'util';
+import fs from 'fs';
+import { sendSuccessResponse, sendErrorResponse } from '../libs/responses';
+const mysqlConnection = require('../database/connection');
+
 
 
 const fsExists = util.promisify(fs.exists);
@@ -11,11 +13,11 @@ const queryAsync = util.promisify(mysqlConnection.query).bind(mysqlConnection);
 export async function getScrapers(req: Request, res: Response): Promise<void> {
   const query = 'SELECT * FROM scraper';
   try {
-        const rows = await queryAsync(query);
-        res.status(200).json(rows);
+    const rows = await queryAsync(query);
+    sendSuccessResponse(res, rows, 'Scrapers retrieved successfully', 200);
   } catch (err) {
-    console.error('Database error:', err);
-    res.status(500).json({ message: 'Internal server error', error: err.message });
+    console.error('Database error:', err); // log for the moment
+    sendErrorResponse(res, err, 'Database error');
   }
 }
 
