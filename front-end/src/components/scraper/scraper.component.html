@@ -26,9 +26,9 @@
         <td *matCellDef="let x" [attr.colspan]="displayedColumns.length + 1" mat-cell>
           <div [@detailExpand]="expandedElement === x ? 'expanded' : 'collapsed'" class="scraper-element-detail">
             <div class="p-4">
-              <mat-chip *ngIf="x.tech === 'puppeteer'" class="bg-warning text-uppercase">
+              <mat-chip *ngIf="x.tech === 'puppeteer'" class="bg-warning text-uppercase ">
                 <mat-icon matChipAvatar>code</mat-icon>
-                <span>Javascript</span>
+                  <span class="text-dark">Javascript</span>
               </mat-chip>
             </div>
           </div>

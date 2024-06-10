@@ -2,7 +2,7 @@ import { Request, Response} from 'express';
 import util from 'util';
 import fs from 'fs';
 import { sendSuccessResponse, sendErrorResponse } from '../libs/responses';
-const mysqlConnection = require('../database/connection');
+const mysqlConnection = require('../database/connection'); // javascript-typescript ahhh moment
 
 
 
