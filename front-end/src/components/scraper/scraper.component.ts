@@ -20,7 +20,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class ScraperComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['source', 'path', 'tech', 'created_at', 'updated_at'];
-  displayedColumnsExpand = ['source', 'path', 'tech', 'created_at', 'updated_at'];
+  displayedColumnsExpand: string[] = ['source', 'path', 'tech', 'created_at', 'updated_at'];
   dataSource = new MatTableDataSource<Scraper>;
   expandedElement: Scraper | null | undefined;
   actualScraper: FormGroup | undefined;
@@ -29,7 +29,7 @@ export class ScraperComponent implements OnInit, AfterViewInit {
   constructor(private scraperService: ScraperService,) {
   }
 
-  toggleExpansion(row:undefined): void {
+  toggleExpansion(row: undefined): void {
     this.expandedElement = this.expandedElement === row ? null : row;
   }
 
