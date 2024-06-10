@@ -48,7 +48,7 @@ export async function createScraper(req: Request, res: Response) {
 }
 
 export async function testCreateFile(req: Request, res: Response) {
-    const {path,source,tech} = {path: 'src/scrapers/puppeteer/pcfactory', source: 'test', tech: ['test']}
+    const {path,source ,tech  } = {path: 'src/scrapers/puppeteer/pcfactory', source: 'test', tech: ['test']}
     const pathFile : string = path.match("puppeteer") ? path + '.ts' : path + '.py';
     if (fs.existsSync(pathFile)) {
         return res.json({
